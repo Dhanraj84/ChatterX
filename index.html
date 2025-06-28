@@ -1,0 +1,61 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatterX - Real-Time Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>ChatterX</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+        
+        <div class="chat-sidebar">
+            <h3>Online Users (<span id="userCount">0</span>)</h3>
+            <ul id="userList"></ul>
+        </div>
+        
+        <div class="chat-main">
+            <div id="messages" class="messages"></div>
+            
+            <div id="typingIndicator" class="typing-indicator"></div>
+            
+            <div class="message-input">
+                <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off">
+                <button id="sendButton"><i class="fas fa-paper-plane"></i></button>
+                <button id="emojiButton"><i class="far fa-smile"></i></button>
+                <select id="messageType">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                </select>
+                <select id="recipientSelect" disabled>
+                    <option value="">Select user</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div id="usernameModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to ChatterX</h2>
+            <p>Please choose a username to join the chat</p>
+            <input type="text" id="usernameInput" placeholder="Enter username" autocomplete="off">
+            <button id="joinButton">Join Chat</button>
+            <p id="usernameError" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js"></script> -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="http://localhost:3002/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
